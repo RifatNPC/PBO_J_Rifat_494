@@ -1,15 +1,52 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import java.util.Scanner;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+public class Main {
+    private static Scanner penginput = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        while (true) {
+            System.out.println("Pilih Login:\n1. Admin\n2. Mahasiswa\nMasukkan Pilihan:");
+            int pilihan = penginput.nextInt();
+            penginput.nextLine();
+            switch (pilihan) {
+                case 1:
+                    admin();
+                    break;
+                case 2:
+                    mahasiswa();
+                    break;
+                default:
+                    System.out.println("Pilihan tidak valid.");
+                    break;
+            }
+        }
+    }
+
+    public static void admin() {
+        System.out.println("Masukkan username: ");
+        String usernameAdmin = penginput.nextLine();
+        System.out.println("Masukkan Password: ");
+        String passwordAdmin = penginput.nextLine();
+
+        if (usernameAdmin.equals("admin123") && passwordAdmin.equals("password123")) {
+            System.out.println("Login Admin Berhasil!");
+        } else {
+            System.out.println("Login gagal! Username atau password salah.");
+        }
+    }
+
+    public static void mahasiswa() {
+        System.out.println("Masukkan username: ");
+        String usernamemahasiswa = penginput.nextLine();
+        System.out.println("Masukkan NIM: ");
+        String passwordmahasiswa = penginput.nextLine();
+
+        if (usernamemahasiswa.equals("rifatakmalsetianto") && passwordmahasiswa.equals("202410370110494")) {
+            System.out.println("Login Mahasiswa Berhasil!");
+            System.out.println("Nama : "+usernamemahasiswa);
+            System.out.println("NIM : "+passwordmahasiswa);
+        } else {
+            System.out.println("Login gagal! Nama atau NIM salah.");
         }
     }
 }
